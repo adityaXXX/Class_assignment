@@ -1,10 +1,10 @@
 #include<stdlib.h>
 #include<stdio.h>
-int m,n;
+int m,n;    // rows and columns
 
-int analyse(int i,int j,int a[m+2][n+2],int b[m+2][n+2])
+int analyse(int i,int j,int a[m+2][n+2],int b[m+2][n+2])    //function to count alive neighbours
 { int i1,j1;
-  int c=0;
+  int c=0;    //counter
   for(i1=i-1;i1<i+2;i1++)
   {
       for(j1=j-1;j1<j+2;j1++)
@@ -19,7 +19,7 @@ int analyse(int i,int j,int a[m+2][n+2],int b[m+2][n+2])
           }
       }
   }
-  if(a[i][j]==1)
+  if(a[i][j]==1)      //if current element is alive
   {
       c=c-1;
       if(c==2||c==3)
@@ -42,13 +42,13 @@ int analyse(int i,int j,int a[m+2][n+2],int b[m+2][n+2])
   }
 return 0;
 }
-int main()
+int main()    //first function to execute
 {int i , j;
-    printf("Enter row and column\n");
+    printf("Enter row and column\n");   //to input rows and columns
 scanf("%d%d",&m,&n);
 int k;
 int a[m+2][n+2];int b[m+2][n+2];
-printf("\nEnter the present generation\n");
+printf("\nEnter the present generation\n");   //to enter the generations
 for( i=1;i<=m;i++)
 for( j=1;j<=n;j++)
 {scanf("%d",&a[i][j]);
@@ -67,7 +67,7 @@ if(i==0||i==m+1||j==0||j==n+1)
     a[i][j]=-1;
     continue;
 }
-analyse(i,j,a,b);
+analyse(i,j,a,b);   //calling functions to count alive neighbours
 }
 }
 int q;int r;
@@ -75,7 +75,7 @@ for(q=1;q<=m;q++)
 for(r=1;r<=n;r++)
 a[q][r]=b[q][r];
 }
-printf("\nThe required generation is:\n");
+printf("\nThe required generation is:\n");    //to print the required generations
 for( i=1;i<=m;i++)
 {printf("\n ");
     for( j=1;j<=n;j++)
