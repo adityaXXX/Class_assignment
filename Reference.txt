@@ -1,0 +1,3 @@
+game1.c is of BE/10532/16 i.e Aditya Kumar
+
+gameoflife.c is of BE/10395/16 i.e Abhinav Gupta
