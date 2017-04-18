@@ -1,11 +1,11 @@
 
 #include <stdio.h>
 
-int r, c;
+int r, c;   //globally declaring rows and columns of matrix
 
-int check( int a[r+2][c+2], int m, int n){
-  int i,j,d=0;
-  if(a[m][n] == 0){
+int check( int a[r+2][c+2], int m, int n){    //to count no. of neighbours
+  int i,j,d=0;    // d is a counter
+  if(a[m][n] == 0){   // nalyzing dead cells
 
 
     for(i = m-1; i<=m+1; i++){
@@ -24,12 +24,12 @@ int check( int a[r+2][c+2], int m, int n){
       d++;
     }
 
-    if(d == 3){return 1;}
+    if(d == 3){return 1;}   //to make deead cells alive
     else{return 0;}
 
   }
 
-  else if(a[m][n] == 1){
+  else if(a[m][n] == 1){    //analyzing living cells
 
 
     for(i = m-1; i<=m+1; i++){
@@ -49,7 +49,7 @@ int check( int a[r+2][c+2], int m, int n){
     }
 
     if(d == 3 || d == 2){return 1;}
-    else{return 0;}
+    else{return 0;}   //to make living cells dead
 
 
   }
@@ -67,7 +67,7 @@ int main(void){
   printf("Enter elements: \n");
   for(i = 0; i<r+2; i++){
     for(j = 0; j<c+2; j++){
-      if(i == 0 || i == r+1 || j == 0 || j == c+1){
+      if(i == 0 || i == r+1 || j == 0 || j == c+1){   //making boundary of matrix -1
         a[i][j] = -1;
       }
       else
@@ -78,7 +78,7 @@ int main(void){
   printf("Number of generations you want to skip?\n");
   scanf("%d",&g);
   if (r != 0 && c != 0) {
-    for(t = 0; t<g; t++){
+    for(t = 0; t<g; t++){   //loop for analyzing generations
       int temp = -1;
       for(i = 1; i<=r; i++){
         for(j = 1; j<=c; j++){
@@ -94,7 +94,7 @@ int main(void){
      }
    }
  }
-  for(i = 1; i<=r; i++){
+  for(i = 1; i<=r; i++){    //print code
     for(j = 1; j<=c; j++){
       printf("%d\t", a[i][j]);
 
